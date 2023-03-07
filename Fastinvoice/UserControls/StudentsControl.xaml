@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="Baremiseur.Pages.StudentsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Baremiseur.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label>Classes</Label>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1"
+                        FlowDirection="RightToLeft">
+
+                <Button Width="70" Click="AddClassroomClick">Ajouter</Button>
+
+            </StackPanel>
+
+        </Grid>
+
+        <StackPanel Grid.Row="1" Margin="5">
+
+            <DataGrid x:Name="ClassroomList" Height="402" 
+                    IsReadOnly="True">
+
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <EventSetter Event="PreviewMouseDown" Handler="ChangeClassroom"/>
+                    </Style>
+                </DataGrid.CellStyle>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="#" />
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Nom" Width="*" />
+
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="EditClassroomClick">Renommer</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="RemoveClassroomClick">Supprimer</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </StackPanel>
+
+        <Grid Grid.Column="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label>Élèves</Label>
+
+            <StackPanel Orientation="Horizontal"
+                            Grid.Column="1"
+                            FlowDirection="RightToLeft">
+
+                <Button x:Name="addStudent" Width="70" Click="AddStudentClick">Ajouter</Button>
+
+            </StackPanel>
+
+        </Grid>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="5">
+
+            <DataGrid x:Name="StudentList" Height="402" 
+                    IsReadOnly="True">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="#" />
+                    <DataGridTextColumn Binding="{Binding Firstname}" Header="Prénom" Width="*" />
+                    <DataGridTextColumn Binding="{Binding Lastname}" Header="Nom de famille" Width="*" />
+                    <DataGridTextColumn Binding="{Binding Gender}" Header="Genre" />
+
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="EditStudentClick">Éditer</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="RemoveStudentClick">Supprimer</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
