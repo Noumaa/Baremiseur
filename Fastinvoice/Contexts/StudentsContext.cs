@@ -12,6 +12,8 @@ namespace Baremiseur.Contexts
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Classroom> Classrooms { get; set; }
+        public DbSet<Grid> Grids { get; set; }
+        public DbSet<Skill> Skills { get; set; }
 
         public string DbPath { get; }
 

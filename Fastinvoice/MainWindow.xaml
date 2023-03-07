@@ -23,11 +23,12 @@
 
             <Button x:Name="NavDashboard" Height="50" Margin="5" Click="NavDashboardClick">Dashboard</Button>
             <Button x:Name="NavStudents" Height="50" Margin="5" Click="NavStudentsClick">Élèves</Button>
+            <Button x:Name="NavGrids" Height="50" Margin="5" Click="NavGridsClick">Grilles d'évaluation</Button>
 
         </StackPanel>
 
         <Frame x:Name="MainFrame" Margin="20" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1">
-            
+
         </Frame>
 
     </Grid>

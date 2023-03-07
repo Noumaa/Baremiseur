@@ -1,5 +1,6 @@
 ﻿using Baremiseur.Contexts;
 using Baremiseur.Pages;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -32,6 +33,7 @@ namespace Baremiseur
             using (var db = new StudentsContext())
             {
                 db.Database.EnsureCreated();
+                db.Database.Migrate();
             }
 
             InitializeComponent();
@@ -45,7 +47,8 @@ namespace Baremiseur
             Dictionary<Button, UserControl> buttons = new Dictionary<Button, UserControl>()
             {
                 { NavDashboard, new DashboardControl() },
-                { NavStudents, new StudentsControl() }
+                { NavStudents, new StudentsControl() },
+                { NavGrids, new GridsControl() }
             };
 
             foreach (var b in buttons.Keys)
@@ -64,6 +67,11 @@ namespace Baremiseur
         }
 
         private void NavStudentsClick(object sender, RoutedEventArgs e)
+        {
+            Display((Button)sender);
+        }
+
+        private void NavGridsClick(object sender, RoutedEventArgs e)
         {
             Display((Button)sender);
         }
