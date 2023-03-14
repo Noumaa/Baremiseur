@@ -1,4 +1,6 @@
-﻿using Baremiseur.Pages;
+﻿using Baremiseur.Contexts;
+using Baremiseur.Models;
+using Baremiseur.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,16 @@ namespace Baremiseur.Windows
         {
             InitializeComponent();
             this.control = control;
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new StudentsContext())
+            {
+                db.Skills.Add(new Skill { Name = TextName.Text, VeryBad = TextVeryBad.Text, Bad = TextBad.Text, Good = TextGood.Text, VeryGood = TextVeryGood.Text, GridId = control.grid.Id });
+                db.SaveChanges();
+            }
+            control.RefreshSkills();
         }
     }
 }

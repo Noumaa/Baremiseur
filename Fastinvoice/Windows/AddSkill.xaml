@@ -5,16 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Baremiseur.Windows"
         mc:Ignorable="d"
-        Title="Ajouter une compétence" Height="450" Width="800">
+        Title="Ajouter une compétence" Height="379" Width="800">
     <Grid>
 
-        <StackPanel>
+        <StackPanel Margin="10">
 
-            <Label>Nom</Label>
+            <StackPanel Margin="0, 0, 0, 10" Orientation="Horizontal">
 
-            <TextBox x:Name="TextName"></TextBox>
-            
+                <Label>Nom</Label>
+
+                <TextBox x:Name="TextName" Height="20" Width="400"></TextBox>
+
+            </StackPanel>
+
+            <Label>Très insuffisant</Label>
+
+            <TextBox
+                x:Name="TextVeryBad"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                
+                VerticalScrollBarVisibility="Visible">
+            </TextBox>
+
+            <Label>Insuffisant</Label>
+
+            <TextBox
+                x:Name="TextBad"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Visible">
+            </TextBox>
+
+            <Label>Satisfaisant</Label>
+
+            <TextBox
+                x:Name="TextGood"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Visible">
+            </TextBox>
+
+            <Label>Très satisfaisant</Label>
+
+            <TextBox
+                x:Name="TextVeryGood"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Visible">
+            </TextBox>
+
         </StackPanel>
-        
+
+        <Button
+            x:Name="btnAdd"
+            Content="Ajouter" Margin="27,0,27,20" VerticalAlignment="Bottom" Click="btnAdd_Click"/>
+
     </Grid>
 </Window>
