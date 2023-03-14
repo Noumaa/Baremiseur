@@ -1,6 +1,6 @@
 ﻿using Baremiseur.Contexts;
 using Baremiseur.Models;
-using Baremiseur.Windows;
+using Baremiseur.Windows.Add;
 using System;
 using System.Collections.Generic;
 using System.Linq;

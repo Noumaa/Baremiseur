@@ -15,10 +15,10 @@
     <Compile Update="UserControls\GridsControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Windows\AddGrid.xaml.cs">
+    <Compile Update="Windows\Add\AddGrid.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Windows\AddClassroom.xaml.cs">
+    <Compile Update="Windows\Add\AddClassroom.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

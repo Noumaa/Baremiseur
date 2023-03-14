@@ -15,30 +15,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Baremiseur.Windows
+namespace Baremiseur.Windows.Add
 {
     /// <summary>
-    /// Logique d'interaction pour AddStudent.xaml
+    /// Logique d'interaction pour AddSkill.xaml
     /// </summary>
-    public partial class AddStudent : Window
+    public partial class AddSkill : Window
     {
 
-        private StudentsControl control;
+        private GridsControl control;
 
-        public AddStudent(StudentsControl control)
+        public AddSkill(GridsControl control)
         {
             InitializeComponent();
             this.control = control;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             using (var db = new StudentsContext())
             {
-                db.Students.Add(new Student { Firstname = TextFirstname.Text, Lastname = TextLastname.Text, Gender = ComboGender.Text == "Homme", ClassroomId = control.classroom.Id });
+                db.Skills.Add(new Skill { Name = TextName.Text, VeryBad = TextVeryBad.Text, Bad = TextBad.Text, Good = TextGood.Text, VeryGood = TextVeryGood.Text, GridId = control.grid.Id });
                 db.SaveChanges();
             }
-            control.RefreshStudents();
+            control.RefreshSkills();
         }
     }
 }

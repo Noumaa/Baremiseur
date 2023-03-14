@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Baremiseur.Windows
+namespace Baremiseur.Windows.Add
 {
     /// <summary>
     /// Logique d'interaction pour AddStudent.xaml

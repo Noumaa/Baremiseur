@@ -6,7 +6,22 @@
              xmlns:local="clr-namespace:Baremiseur.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label FontWeight="Bold" FontSize="40">Bienvenue</Label>
+    <Grid Margin="5">
+        <StackPanel>
+
+            <Label>Afin de démarrer l'enregistrement des résultats, veuillez sélectionner une classe.</Label>
+
+            <StackPanel
+                Orientation="Horizontal">
+
+                <ComboBox
+                    x:Name="comboClassrooms"
+                    Margin="0, 0, 10, 0"></ComboBox>
+                <Button
+                    x:Name="btnLaunchTest">Démarrer</Button>
+
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </UserControl>
