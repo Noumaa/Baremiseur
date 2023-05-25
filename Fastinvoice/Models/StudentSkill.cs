@@ -9,10 +9,10 @@ namespace Baremiseur.Models
     public class StudentSkill
     {
         public int Id { get; set; }
-        public Student Student { get; set; }
+        public Student? Student { get; set; }
         public int StudentId { get; set; }
-        public Skill Skill { get; set; }
+        public Skill? Skill { get; set; }
         public int SkillId { get; set; }
-        public int Result { get; set; }
+        public int Level { get; set; }
     }
 }

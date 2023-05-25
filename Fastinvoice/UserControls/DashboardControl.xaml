@@ -9,17 +9,46 @@
     <Grid Margin="5">
         <StackPanel>
 
-            <Label>Afin de démarrer l'enregistrement des résultats, veuillez sélectionner une classe.</Label>
+            <Label>Afin de démarrer l'enregistrement des résultats, veuillez sélectionner une grille d'évaluation ainsi qu'une classe à évaluer.</Label>
 
-            <StackPanel
-                Orientation="Horizontal">
+            <StackPanel>
+
+                <ComboBox
+                    x:Name="comboGrids"
+                    Margin="0, 0, 10, 0"
+                    Focusable="False"
+                    IsEditable="True"
+                    IsReadOnly="True"
+                    Text="-- Choisir une grille d'évaluation --"></ComboBox>
 
                 <ComboBox
                     x:Name="comboClassrooms"
-                    Margin="0, 0, 10, 0"></ComboBox>
-                <Button
-                    x:Name="btnLaunchTest">Démarrer</Button>
+                    Margin="0, 0, 10, 0"
+                    Focusable="False"
+                    IsEditable="True"
+                    IsReadOnly="True"
+                    Text="-- Choisir une classe à évaluer --"></ComboBox>
 
+            </StackPanel>
+            <Button
+                    x:Name="btnLaunchTest" Click="btnLaunchTest_Click">Démarrer</Button>
+            <Button
+                    x:Name="btnStopTest"
+                    Margin="10, 0, 0, 0"
+                    IsEnabled="False">Arrêter</Button>
+
+            <Separator Margin="0, 20, 0, 10" />
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="labelGrid">Grille d'évaluation : xxx</Label>
+                    <Label x:Name="labelStudent"
+                           Margin="10, 0, 0, 0">Elève : xxx XXX</Label>
+                </StackPanel>
+                <Frame x:Name="frame" Margin="0, 10, 0, 10"></Frame>
+                <Button x:Name="btnNextStudent"
+                        IsEnabled="False"
+                        Padding="0, 10, 0, 10" Click="btnNextStudent_Click">Élève suivant</Button>
             </StackPanel>
 
         </StackPanel>
