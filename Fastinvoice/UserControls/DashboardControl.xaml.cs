@@ -58,21 +58,73 @@ namespace Baremiseur.Pages
                 return;
             }
 
+            Models.Grid grid;
+            Models.Classroom classroom;
+
             using (var db = new StudentsContext())
             {
-                Models.Grid grid = db.Grids.Where(g => g.Name == comboGrids.SelectedItem.ToString()).First();
-                Models.Classroom classroom = db.Classrooms.Where(g => g.Name == comboClassrooms.SelectedItem.ToString()).First();
+                grid = db.Grids.Where(g => g.Name == comboGrids.SelectedItem.ToString()).First();
+                classroom = db.Classrooms.Where(g => g.Name == comboClassrooms.SelectedItem.ToString()).First();
                 
                 if (grid == null || classroom == null)
                 {
-                    MessageBox.Show("Un problème est survenu, veuillez contacter le développeur.");
+                    MessageBox.Show("Un problème est survenu, veuillez contacter le développeur. #007");
                     return;
                 }
 
                 index = -1;
                 students = new List<Student>(db.Students.Where(s => s.Classroom == classroom).ToList());
+
+                List<Skill> skills = db.Skills.Where(s => s.GridId == grid.Id).ToList();
+                MessageBox.Show("test1 " + skills.Count);
             }
             btnNextStudent.IsEnabled = true;
+
+            if (grid.Skills == null)
+            {
+                MessageBox.Show("Un problème est survenu, veuillez contacter le développeur. #006");
+                return;
+            }
+
+            StackPanel stackPanel = new StackPanel();
+
+            Label title = new Label();
+            title.Content = grid.Name;
+
+            stackPanel.Children.Add(title);
+
+            foreach (Skill skill in grid.Skills)
+            {
+                MessageBox.Show("test");
+                StackPanel skillPanel = new StackPanel();
+                skillPanel.Orientation = Orientation.Horizontal;
+
+                Label label = new Label();
+                label.Content = skill.Name;
+
+                CheckBox veryBad = new CheckBox();
+                veryBad.Name = "veryBad";
+
+                CheckBox bad = new CheckBox();
+                bad.Name = "bad";
+
+                CheckBox good = new CheckBox();
+                good.Name = "good";
+
+                CheckBox veryGood = new CheckBox();
+                veryGood.Name = "veryGood";
+
+                skillPanel.Children.Add(label);
+                skillPanel.Children.Add(veryBad);
+                skillPanel.Children.Add(bad);
+                skillPanel.Children.Add(good);
+                skillPanel.Children.Add(veryGood);
+
+                stackPanel.Children.Add(skillPanel);
+            }
+
+            frame.Content = stackPanel;
+
             nextStudent();
         }
 

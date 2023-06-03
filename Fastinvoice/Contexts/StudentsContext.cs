@@ -26,5 +26,14 @@ namespace Baremiseur.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite($"Data Source={DbPath}");
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Skill>()
+                .HasOne(e => e.Grid)
+                .WithMany(e => e.Skills)
+                .HasForeignKey(e => e.GridId)
+                .IsRequired();
+        }
     }
 }

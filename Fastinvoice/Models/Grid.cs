@@ -10,6 +10,6 @@ namespace Baremiseur.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Skill>? Skills { get; set; }
+        public ICollection<Skill> Skills { get; } = new List<Skill>();
     }
 }

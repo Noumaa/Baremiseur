@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,6 @@ namespace Baremiseur.Models
         public string Good { get; set; }
         public string VeryGood { get; set; }
         public int GridId { get; set; }
-        public Grid Grid { get; set; }
+        public Grid Grid { get; set; } = null!;
     }
 }
