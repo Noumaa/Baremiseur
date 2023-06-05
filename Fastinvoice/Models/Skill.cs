@@ -11,11 +11,14 @@ namespace Baremiseur.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string VeryBad { get; set; }
-        public string Bad { get; set; }
-        public string Good { get; set; }
-        public string VeryGood { get; set; }
-        public int GridId { get; set; }
+        public string? VeryBad { get; set; }
+        public string? Bad { get; set; }
+        public string? Good { get; set; }
+        public string? VeryGood { get; set; }
+        public int? GridId { get; set; }
         public Grid Grid { get; set; } = null!;
+        public int? ParentSkillId { get; set; }
+        public Skill ParentSkill { get; set; } = null!;
+        public ICollection<Skill> SubSkills { get; set; } = new List<Skill>();
     }
 }

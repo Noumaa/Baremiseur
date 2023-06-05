@@ -9,6 +9,15 @@
     <Grid Margin="5">
         <StackPanel>
 
+            <Button Click="Import">Importer</Button>
+            <TreeView x:Name="skillTreeView" Margin="10">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding SubSkills}">
+                        <TextBlock Text="{Binding Name}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+
             <Label>Afin de démarrer l'enregistrement des résultats, veuillez sélectionner une grille d'évaluation ainsi qu'une classe à évaluer.</Label>
 
             <StackPanel>

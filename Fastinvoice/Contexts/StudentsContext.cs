@@ -33,7 +33,7 @@ namespace Baremiseur.Contexts
                 .HasOne(e => e.Grid)
                 .WithMany(e => e.Skills)
                 .HasForeignKey(e => e.GridId)
-                .IsRequired();
+                .IsRequired(false);
         }
     }
 }

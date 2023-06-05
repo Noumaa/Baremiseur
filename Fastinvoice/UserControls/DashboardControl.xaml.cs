@@ -149,5 +149,21 @@ namespace Baremiseur.Pages
         {
             nextStudent();
         }
+
+        private void Import(object sender, RoutedEventArgs e)
+        {
+            XmlImport import = new XmlImport();
+            import.Import("C:\\Users\\vallee\\Downloads\\sio_v2012_final.xml");
+            RefreshSkillTree();
+        }
+
+        private void RefreshSkillTree()
+        {
+            using (var db = new StudentsContext())
+            {
+                // Affecter les compétences à la source de données de la TreeView
+                skillTreeView.ItemsSource = db.Skills.ToList();
+            }
+        }
     }
 }
